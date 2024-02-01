@@ -56,4 +56,16 @@ public class TournamentRound {
 
 	@Column(name = "round_id")
 	private Integer roundId;
+
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	//@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "tournament_round", orphanRemoval = true)
+	private List<TournamentBetGame> tournamentBetGames;
+
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	//@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "tournament_round", orphanRemoval = true)
+	private List<TournamentBetGameResult> tournamentBetGameResults;
 }
